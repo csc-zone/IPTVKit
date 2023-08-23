@@ -23,6 +23,12 @@ public class TVPlaylist: Hashable, Codable {
         self.name = name
         self.url = url
     }
+
+    public init(identifier: String, name: String, url: URL) {
+        self.identifier = identifier
+        self.name = name
+        self.url = url
+    }
     
     public static func == (lhs: TVPlaylist, rhs: TVPlaylist) -> Bool {
         return lhs.identifier == rhs.identifier
