@@ -10,6 +10,8 @@ public class TVPlayItem: Hashable, Codable {
         case url
         case raw
     }
+
+    public var index: Int = 0
     
     public var identifier: String = UUID().uuidString
     

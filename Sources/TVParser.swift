@@ -66,6 +66,9 @@ public struct TVParser {
         guard items.count > 0 else {
             return nil
         }
+        for (index, element) in items.enumerated() {
+            element.index = index
+        }
         let playlist = TVPlaylist(name: name, url: url)
         playlist.items = items
         playlist.epgUrls = epgUrl
@@ -136,6 +139,9 @@ public struct TVParser {
         }
         guard items.count > 0 else {
             return nil
+        }
+        for (index, element) in items.enumerated() {
+            element.index = index
         }
         let playlist = TVPlaylist(identifier: identifier, name: name, url: url)
         playlist.items = items
