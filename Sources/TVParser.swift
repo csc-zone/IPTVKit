@@ -29,12 +29,6 @@ public struct TVParser {
                 let item = TVPlayItem(name: name, tvg: tvg, group: group, url: "", raw: info)
 
                 current = item
-            } else if let url = URL(string: line.replacingOccurrences(of: " ", with: "")) {
-                current?.url = url.absoluteString
-                if let item = current {
-                    items.append(item)
-                    current = nil
-                }
             } else if line.contains(",") {
                 let components = line.components(separatedBy: ",")
                 if components.count == 2 {
@@ -50,6 +44,12 @@ public struct TVParser {
                     } else {
                         group = name
                     }
+                }
+            } else if let url = URL(string: line.replacingOccurrences(of: " ", with: "")) {
+                current?.url = url.absoluteString
+                if let item = current {
+                    items.append(item)
+                    current = nil
                 }
             } else {
                 if let url = URL(string: line) {
@@ -103,12 +103,6 @@ public struct TVParser {
                 let item = TVPlayItem(name: name, tvg: tvg, group: group, url: "", raw: info)
 
                 current = item
-            } else if let url = URL(string: line.replacingOccurrences(of: " ", with: "")) {
-                current?.url = url.absoluteString
-                if let item = current {
-                    items.append(item)
-                    current = nil
-                }
             } else if line.contains(",") {
                 let components = line.components(separatedBy: ",")
                 if components.count == 2 {
@@ -124,6 +118,12 @@ public struct TVParser {
                     } else {
                         group = name
                     }
+                }
+            } else if let url = URL(string: line.replacingOccurrences(of: " ", with: "")) {
+                current?.url = url.absoluteString
+                if let item = current {
+                    items.append(item)
+                    current = nil
                 }
             } else {
                 if let url = URL(string: line) {
